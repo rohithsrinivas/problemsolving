@@ -97,32 +97,41 @@ public class RemovingDulicatesFromSortedLinkedList {
 				values.put(temp.data, 1);
 			temp = temp.next;
 		}
-		
+
 		Iterator<Map.Entry<Integer, Integer>> mapIterator = values.entrySet().iterator();
 		while (mapIterator.hasNext()) {
 			Entry<Integer, Integer> entry = mapIterator.next();
-			if(entry.getValue() > 1) {
-				System.out.println("found duplicate .."+entry.getKey());
+			if (entry.getValue() > 1) {
+				System.out.println("found duplicate .." + entry.getKey());
 				// now all the nodes having data as this need to be deleted.
 				deleteNodesWithData(entry.getKey());
 				System.out.println();
-				
+
 			}
 		}
-		
 
 	}
-	
+
 	private void deleteNodesWithData(int data) {
-		boolean isFirst = true;
-		Node current = head.next,previous = head;
-		while(current != null) {
-			
-			if(current.data == data) {
-				if(isFirst) {
-					isFirst = false;
-					continue;
-				}
+		Node temp = head;
+		Node startingPoint = null;
+		while (temp.next != null) {
+			if (temp.data == data) {
+				startingPoint = temp;
+				break;
+			}
+			temp = temp.next;
+		}
+		// now we have to delete all nodes from the next node of starting point till the
+		// end with the same data
+		Node current = startingPoint.next.next, previous = startingPoint.next;
+		while (current != null) {
+			//this is for the case that immediately after the first occurence, the second occurence is found, so we
+			// compare it with the previous pointers data
+			if(previous.data == data) {
+				startingPoint.next = current;
+			}
+			if (current.data == data) {
 				previous.next = current.next;
 				current.next = null;
 			}
@@ -134,14 +143,16 @@ public class RemovingDulicatesFromSortedLinkedList {
 	public static void main(String[] args) {
 		RemovingDulicatesFromSortedLinkedList linkedList = new RemovingDulicatesFromSortedLinkedList();
 		linkedList.insertInPosition(1, 10);
+		linkedList.insertInPosition(1, 10);
 		linkedList.insertInPosition(2, 20);
 		linkedList.insertInPosition(3, 30);
 		linkedList.insertInPosition(2, 15);
 		linkedList.insertInPosition(4, 25);
 		linkedList.insertInPosition(6, 35);
 		linkedList.insertInPosition(4, 10);
-		linkedList.insertInPosition(6,25);
-		
+		linkedList.insertInPosition(6, 25);
+		linkedList.insertInPosition(9, 30);
+
 		linkedList.printList();
 		System.out.println("_____________");
 		linkedList.removeDuplicatesFromLinkedList();
