@@ -62,6 +62,10 @@ public class InfixToPostfix {
 				stack.pop();
 			}
 			
+			/* this is the case when a operator in encounters, check if the precedence of the scanned operator is greater than the operator on top and if
+			 * not, then pop the elements of stack and append it to the output until the precedence is lesser.
+			 * 
+			 */
 			else {
 				while(!stack.isEmpty() && getPrecedence(current)<=getPrecedence(stack.peek())) {
 					output.append(stack.pop());
