@@ -1,6 +1,6 @@
 package com.problem.queues;
 
-public class DoubleEndedQueueUsingLinkedList {
+public class DoubleEndedQueueUsingSingleLinkedList {
 
 	Node head, rear;
 
@@ -70,7 +70,7 @@ public class DoubleEndedQueueUsingLinkedList {
 	}
 
 	public static void main(String[] args) {
-		DoubleEndedQueueUsingLinkedList dequeue = new DoubleEndedQueueUsingLinkedList();
+		DoubleEndedQueueUsingSingleLinkedList dequeue = new DoubleEndedQueueUsingSingleLinkedList();
 		dequeue.pushToQueueFromRearEnd(10);
 		dequeue.pushToQueueFromRearEnd(20);
 		dequeue.pushToQueueFromRearEnd(30);

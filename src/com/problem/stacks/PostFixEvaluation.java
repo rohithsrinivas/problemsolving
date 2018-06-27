@@ -86,7 +86,7 @@ public class PostFixEvaluation {
 	}
 
 	public static void main(String[] args) {
-		String input = "1 2 + 4 *";
+		String input = "1 2 + 4 * 5 -";
 		PostFixEvaluation evaluator = new PostFixEvaluation();
 		System.out.println(evaluator.evaluatePostFixExpression(input));
 	}

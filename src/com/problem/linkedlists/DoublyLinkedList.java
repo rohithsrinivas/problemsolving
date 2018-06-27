@@ -17,17 +17,19 @@ public class DoublyLinkedList {
 	}
 
 	private void insertInFirstPlace(int data) {
+		Node temp = head;
 		Node newNode = new Node(data);
 		newNode.prev = null;
-		newNode.next = head;
+		newNode.next = temp;
+		if (head != null)
+			head.prev = newNode;
 		head = newNode;
 		//System.out.println("Node inserted in first place");
 	}
 
 	private void insertInTheLastPlace(int data) {
 		if (head == null) {
-			System.out.println("list empty!!");
-			return;
+			insertInFirstPlace(data);
 		}
 		Node temp = head;
 		while (temp.next != null) {
