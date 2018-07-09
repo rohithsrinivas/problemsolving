@@ -143,7 +143,7 @@ public class SortedInsertInLinkedList {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		SortedInsertInLinkedList linkedList = new SortedInsertInLinkedList();
 		linkedList.insertInLastPlace(10);
 		linkedList.insertInLastPlace(20);
@@ -151,6 +151,11 @@ public class SortedInsertInLinkedList {
 		linkedList.printList();
 		System.out.println("______________");
 		linkedList.sortedInsert(8);
+		linkedList.sortedInsert(15);
+		linkedList.sortedInsert(24);
+		linkedList.sortedInsert(28);
+		linkedList.sortedInsert(35);
+		linkedList.sortedInsert(3);
 		linkedList.printList();
 	}
 
