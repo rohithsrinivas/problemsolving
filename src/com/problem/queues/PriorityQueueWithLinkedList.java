@@ -5,7 +5,7 @@ import java.util.TreeMap;
 public class PriorityQueueWithLinkedList {
 
 	Node head;
-	
+
 	TreeMap<Integer, Node> sortingMap = new TreeMap<>();
 
 	class Node {
@@ -28,7 +28,7 @@ public class PriorityQueueWithLinkedList {
 	 * popped, or for peeking
 	 */
 	private void insertIntoPriorityQueue(String data, int priority) {
-		
+
 		Node newNode = new Node(data, priority);
 		/*
 		 * if the priority is more than the priority of head node, then directly push at
@@ -40,8 +40,10 @@ public class PriorityQueueWithLinkedList {
 			head = newNode;
 		}
 		/*
-		 now when we are inserting a new node, we add the node at the ending of the list, and add it to the sorting map to get the highest priority value
-		 while popping from the queue, so every time we pop and element, we retrieve the highest value i.e the last entry from the tree map and return it
+		 * now when we are inserting a new node, we add the node at the ending of the
+		 * list, and add it to the sorting map to get the highest priority value while
+		 * popping from the queue, so every time we pop and element, we retrieve the
+		 * highest value i.e the last entry from the tree map and return it
 		 */
 		else {
 			Node temp = head;
@@ -51,12 +53,46 @@ public class PriorityQueueWithLinkedList {
 			newNode.next = null;
 			temp.next = newNode;
 		}
-		
+
+		/*
+		 * we add it to the sorting map, with the priority of the node as the key and
+		 * the node itself as the value, so that when we poll the last entry from the
+		 * tree map, we always get the latest value..
+		 */
 		this.sortingMap.put(newNode.priority, newNode);
 
 	}
 
+	private void deleteFirstNode() {
+		Node temp = head;
+		head = temp.next;
+	}
+
+	private void deleteNode(String data) {
+		if (head == null) {
+			System.out.println("list empty");
+			return;
+		}
+		Node current = head.next, prev = head;
+		boolean matchFound = false;
+		while (current != null) {
+			if (data == current.data) {
+				matchFound = true;
+				break;
+			}
+			current = current.next;
+			prev = prev.next;
+		}
+		if (matchFound) {
+			prev.next = current.next;
+			current.next = null;
+		}
+	}
+
 	private Node getHighestValueInTheBeginning() {
+		/*
+		 * polling the last entry will pop the item from the map and return the entry..
+		 */
 		return sortingMap.pollLastEntry().getValue();
 	}
 
@@ -71,7 +107,9 @@ public class PriorityQueueWithLinkedList {
 		if (head == null) {
 			return -1;
 		}
-		return getHighestValueInTheBeginning().priority;
+		Node highestValueNode = getHighestValueInTheBeginning();
+		deleteNode(highestValueNode.data);
+		return highestValueNode.priority;
 	}
 
 	private void printQueue() {
@@ -84,9 +122,6 @@ public class PriorityQueueWithLinkedList {
 
 	public static void main(String[] args) {
 		PriorityQueueWithLinkedList priorityQueue = new PriorityQueueWithLinkedList();
-		// for(int i=10;i<=50;i=i+10) {
-		// priorityQueue.insertIntoPriorityQueue(new Integer(i).toString(), i/10);
-		// }
 
 		priorityQueue.insertIntoPriorityQueue(new Integer(80).toString(), 8);
 		priorityQueue.insertIntoPriorityQueue(new Integer(50).toString(), 11);
@@ -94,13 +129,17 @@ public class PriorityQueueWithLinkedList {
 		priorityQueue.insertIntoPriorityQueue(new Integer(70).toString(), 6);
 		priorityQueue.insertIntoPriorityQueue(new Integer(60).toString(), 1);
 
-		// priorityQueue.printQueue();
+		System.out.println(priorityQueue.popItemWithHighestPriority());
+		System.out.println(priorityQueue.popItemWithHighestPriority());
+		System.out.println(priorityQueue.popItemWithHighestPriority());
+		System.out.println(priorityQueue.popItemWithHighestPriority());
+		System.out.println(priorityQueue.popItemWithHighestPriority());
+		
+		priorityQueue.deleteFirstNode();
 
-		System.out.println(priorityQueue.popItemWithHighestPriority());
-		System.out.println(priorityQueue.popItemWithHighestPriority());
-		System.out.println(priorityQueue.popItemWithHighestPriority());
-		System.out.println(priorityQueue.popItemWithHighestPriority());
-		System.out.println(priorityQueue.popItemWithHighestPriority());
+		System.out.println("__________");
+
+		priorityQueue.printQueue();
 	}
 
 }
