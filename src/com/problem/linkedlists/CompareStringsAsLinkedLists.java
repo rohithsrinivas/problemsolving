@@ -2,7 +2,7 @@ package com.problem.linkedlists;
 
 public class CompareStringsAsLinkedLists {
 
-	Node head;
+	/* since we have two lists, we declare 2 heads, one for each */
 	Node head1, head2;
 
 	class Node {
@@ -15,6 +15,10 @@ public class CompareStringsAsLinkedLists {
 		}
 	}
 
+	/*
+	 * we have 2 params, so as to insert the node into the specific list based on
+	 * the list index
+	 */
 	private void insertInFirstPlace(int listIndex, char data) {
 		Node newNode = new Node(data);
 		if (listIndex == 1) {
@@ -77,15 +81,25 @@ public class CompareStringsAsLinkedLists {
 		}
 	}
 
+	/* this function will compare strings represented as linked lists */
 	private boolean compareStringsAsLinkedLists() {
+		/*
+		 * we check if the sizes are different, it will obviously mean that they are not
+		 * equal
+		 */
 		if (calculatSize(1) != calculatSize(2)) {
 			System.out.println("Strings are not equal due to different sizes");
 			return false;
 		}
+		/* even in case of both being null, they are equal, so we return true */
 		if (head1 == null && head2 == null) {
 			System.out.println("strings are equal as they are null");
 			return true;
 		}
+		/*
+		 * now we verify each character of both lists by comparisons, and break at the
+		 * point where we find a comparison which says, even one character is unequal
+		 */
 		Node temp1 = head1, temp2 = head2;
 		while (temp1.next != null && temp2.next != null) {
 			if (temp1.data != temp2.data) {
@@ -95,6 +109,8 @@ public class CompareStringsAsLinkedLists {
 			temp1 = temp1.next;
 			temp2 = temp2.next;
 		}
+		
+		/* at the end, we can conclude that both the strings are equal, if all above checks are passed*/
 		return true;
 	}
 
@@ -112,14 +128,14 @@ public class CompareStringsAsLinkedLists {
 		linkedLists.insertInLastPlace(2, 'o');
 		linkedLists.insertInLastPlace(2, 'h');
 		linkedLists.insertInLastPlace(2, 'i');
-		linkedLists.insertInLastPlace(2, 't');
+		linkedLists.insertInLastPlace(2, 'z');
 		linkedLists.insertInLastPlace(2, 'h');
 		System.out.println("____________");
 		linkedLists.printList(2);
-		if(linkedLists.compareStringsAsLinkedLists()) {
+		if (linkedLists.compareStringsAsLinkedLists()) {
 			System.out.println("the Strings are equal...");
 		}
-		
+
 	}
 
 }
