@@ -223,15 +223,16 @@ public class AddNumbersAsLinkedLists {
 		linkedList1.insertInLastPlace(9);
 		linkedList1.insertInLastPlace(9);
 		linkedList1.insertInLastPlace(9);
-		linkedList1.insertInLastPlace(9);
-		// linkedList1.insertInLastPlace(9);
-		// linkedList1.insertInLastPlace(9);
-		// linkedList1.insertInLastPlace(9);
+		//linkedList1.insertInLastPlace(9);
 		System.out.println(" first number is ___________ ");
 		linkedList1.printList();
 		AddNumbersAsLinkedLists linkedList2 = new AddNumbersAsLinkedLists();
 		// linkedList2.insertInLastPlace(3);
 		// linkedList2.insertInLastPlace(1);
+		// linkedList1.insertInLastPlace(9);
+				linkedList2.insertInLastPlace(9);
+			 linkedList2.insertInLastPlace(9);
+				
 		linkedList2.insertInLastPlace(9);
 		System.out.println(" second number is ___________");
 		linkedList2.printList();

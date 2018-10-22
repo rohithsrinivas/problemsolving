@@ -1,5 +1,7 @@
 package com.problem.queues;
 
+import java.util.HashSet;
+
 public class DoubleEndedQueueUsingSingleLinkedList {
 
 	Node head, rear;

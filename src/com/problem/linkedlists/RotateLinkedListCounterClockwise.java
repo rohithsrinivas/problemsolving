@@ -43,7 +43,7 @@ public class RotateLinkedListCounterClockwise {
 		head = previous;
 	}
 
-	private void printList() {
+	private void printList(Node head) {
 		Node temp = head;
 		while (temp != null) {
 			System.out.println(temp.data);
@@ -67,6 +67,26 @@ public class RotateLinkedListCounterClockwise {
 		Node newNode = new Node(data);
 		previous.next = newNode;
 		newNode.next = current;
+	}
+	
+	private Node rotateLinkedList(int rotatingIndex,Node head) {
+		Node temp = head;
+		Node previousHead = head;
+		for(int i = 1;i <= getSizeOfList(); i++) {
+			if(rotatingIndex == i)
+				break;
+			temp = temp.next;
+		}
+		Node newHead = temp.next;
+		temp.next = null;
+		temp = newHead;
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = previousHead;
+		
+		return newHead;
+		
 	}
 
 	private void insertAfterNode(int data, int afterData) {
@@ -144,10 +164,10 @@ public class RotateLinkedListCounterClockwise {
 		linkedList.insertInLastPlace(50);
 		linkedList.insertBeforeNode(30, 40);
 		linkedList.insertAfterNode(60, 50);
-		linkedList.printList();
-		linkedList.rotateListInClockwiseDirectionAround(4);
+		linkedList.printList(linkedList.head);
+		Node new1= linkedList.rotateLinkedList(1,linkedList.head);
 		System.out.println("__________________");
-		linkedList.printList();
+		linkedList.printList(new1);
 		// linkedList.reverseLinkedList();
 		// linkedList.printList();
 

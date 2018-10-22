@@ -31,12 +31,10 @@ public class MiddleOfLinkedList {
 	private void deleteTheMiddleNodeInTheLinkedList() {
 		Node fast = head,slow= head;
 		Node previous = null;
-		while(fast.next!=null) {
+		while(fast != null && fast.next!=null) {
 			fast = fast.next.next;
 			previous = slow;
 			slow = slow.next;
-			if(fast == null)
-				break;
 		}
 		
 		//now we should delete the slow node

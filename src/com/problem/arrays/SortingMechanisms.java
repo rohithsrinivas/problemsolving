@@ -65,6 +65,7 @@ public class SortingMechanisms {
 
 //		printArray(sortedArray);
 		//sortingMechanisms.printArray();
+		sortingMechanisms.sortUsingSelectionSort(input);
 	}
 
 }
