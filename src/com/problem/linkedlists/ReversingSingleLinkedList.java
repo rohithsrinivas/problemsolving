@@ -190,6 +190,17 @@ public class ReversingSingleLinkedList {
 		head = previousNode;
 	}
 	
+	private Node reverseWithRecursion(Node current,Node prev) {
+		if(current.next == null) {
+			head = current;
+			current.next = prev;
+			return head;
+		}
+		Node next = current.next;
+		current.next = prev;
+		return reverseWithRecursion(next, current);
+	}
+	
 	private boolean isEmpty() {
 		return head==null;
 	}
@@ -205,7 +216,7 @@ public class ReversingSingleLinkedList {
 		//linkedList.deleteAtPosition(4);
 		linkedList.printList();
 		System.out.println(" reversing list .. __________________________");
-		linkedList.reverseLinkedList();
+		linkedList.reverseWithRecursion(linkedList.head, null);
 		linkedList.printList();
 	}
 

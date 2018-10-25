@@ -61,6 +61,7 @@ public class KMostFrequentElements {
 
 	}
 
+
 	private void printKMostFrequentElementsWithoutComparator(int k) {
 		List<Integer> input = Arrays.asList(1, 2, 6, 3, 2, 8, 9, 3, 5, 5, 3, 1, 1);
 		/* O(n) for finding frequencies into the map and O(n) space complexity for the storage of map*/
@@ -76,7 +77,7 @@ public class KMostFrequentElements {
 		/*
 		 * now maintain an array of lists, such that the index will be the frequency of
 		 * a particular number in the array and the value at the index will be number
-		 * which is occuring "index" number of times
+		 * which is occurring "index" number of times
 		 */
 		/*
 		 * the reason we need to have input.size() + 1, is because we dont want any

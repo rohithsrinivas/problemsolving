@@ -1,6 +1,9 @@
 package com.problem.linkedlists;
 
 import java.beans.beancontext.BeanContext;
+import java.util.HashSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class ReverseListInGroupsOfGivenSize {
 
@@ -185,15 +188,16 @@ public class ReverseListInGroupsOfGivenSize {
 		linkedList.insertInLastPlace(100);
 		linkedList.insertInLastPlace(200);
 		linkedList.insertInLastPlace(300);
+		linkedList.insertInLastPlace(400);
 		linkedList.printList(linkedList.head);
 		// Node reversedLinkedListHead = linkedList.reverseLinkedList(linkedList.head);
 		// linkedList.printList(reversedLinkedListHead);
-		Node newHead = linkedList.reverseListInGroupsOfSize(3, linkedList.head);
+		Node newHead = linkedList.reverseListInGroupsOfSize(4, linkedList.head);
 		System.out.println("))))))))))))))))");
 		linkedList.printList(newHead);
 		Node newHead2 = linkedList.reverseAlternateKNodes(3, newHead);
 		System.out.println("************");
-		linkedList.printList(newHead2);
+		linkedList.printList(newHead2);		
 
 	}
 

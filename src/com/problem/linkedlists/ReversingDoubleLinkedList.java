@@ -182,6 +182,17 @@ public class ReversingDoubleLinkedList {
 		head = previousNode;
 	}
 	
+	private Node reverseWithRecursion(Node current,Node prev) {
+		if(current.next == null) {
+			head = current;
+			current.next = prev;
+			return head;
+		}
+		Node next = current.next;
+		current.next = prev;
+		return reverseWithRecursion(next, current);
+	}
+	
 //	private void reverseListWith2Pointers() {
 //		Node temp = null,current = head;
 //		while(current != null) {
@@ -203,7 +214,7 @@ public class ReversingDoubleLinkedList {
 		doubleLinkedList.deleteNodeAtPosition(3);
 		doubleLinkedList.printList();
 		System.out.println("after reversing list...........");
-		doubleLinkedList.reverseList();
+		doubleLinkedList.reverseWithRecursion(doubleLinkedList.head, null);
 		doubleLinkedList.printList();
 	}
 
