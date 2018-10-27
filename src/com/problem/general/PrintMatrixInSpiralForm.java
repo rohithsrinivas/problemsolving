@@ -5,30 +5,31 @@ public class PrintMatrixInSpiralForm {
 	private void printMatrixInSpiralForm(int[][] input, int rows, int columns) {
 		int i = 0, rowIndex = 0, columnIndex = 0;
 		while (rowIndex < rows && columnIndex < columns) {
-			/* initially print the first row */
+			/* we need to print the first row first, so the rowIndex will be fixed */
 			for (i = columnIndex; i < columns; i++)
 				System.out.print(input[rowIndex][i] + " ");
-			/* increment the row index, because we finished printing one row */
+			/* as we are printing the first row, increment the rowIndex*/
 			rowIndex++;
-			/* now print the last column */
+			/*now we should print the last column, so the column index will be columns - 1*/
 			for (i = rowIndex; i < rows; i++)
-				System.out.print(input[i][columns - 1] + " ");
-			/* increment the column index, as we finished printing the last column */
+				System.out.print(input[i][columns-1] + " ");
+			/* decrement the columns as we are printing from last*/
 			columns--;
-			/* now print the last row */
+			/* to avoid overlooping*/
 			if (rowIndex < rows) {
+				/* now print the last row*/
 				for (i = columns - 1; i >= columnIndex; i--)
-					System.out.print(input[rows - 1][i] + " ");
+					System.out.print(input[rows-1][i] + " ");
 				rows--;
 			}
-			/* now print the first column */
 			if (columnIndex < columns) {
-				for (i = rows-1; i >= rowIndex; i--)
+				/* now print the first column*/
+				for (i = rows - 1; i >= rowIndex; i--)
 					System.out.print(input[i][columnIndex] + " ");
 				columnIndex++;
 			}
-
 		}
+
 	}
 
 	public static void main(String[] args) {
