@@ -69,8 +69,7 @@ public class DeleteAlternateNodesInLinkedList {
 	 * make this work with odd and even number of nodes*/
 	private void deleteAlternateNodes() {
 		Node temp = head;
-		while (temp.next != null) {
-			if(temp.next.next != null)
+		while(temp != null && temp.next != null) {
 			temp.next = temp.next.next;
 			temp = temp.next;
 		}
