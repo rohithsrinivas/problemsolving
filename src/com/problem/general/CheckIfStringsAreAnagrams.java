@@ -5,17 +5,17 @@ public class CheckIfStringsAreAnagrams {
 	private boolean isAnagram(String input1,String input2) {
 		if(input1.length() != input2.length())
 			return false;
+		StringBuilder inputBuilder2 = new StringBuilder(input2);
 		char[] input1chars = input1.toCharArray();
-		StringBuilder input2builder = new StringBuilder(input2);
+		int index = 0;
 		for(char ch : input1chars) {
-			int index = input2builder.indexOf(""+ch);
+			index = inputBuilder2.indexOf(""+ch);
 			if(index >= 0)
-				input2builder.deleteCharAt(index);
+				inputBuilder2.deleteCharAt(index);
 			else
 				return false;
 		}
-		
-		return input2builder.length() > 0 ? false : true;
+		return inputBuilder2.length() == 0 ? true : false;
 	}
 
 	public static void main(String[] args) {

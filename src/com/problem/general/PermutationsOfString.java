@@ -13,7 +13,6 @@ public class PermutationsOfString {
 			for(int i = startingIndex;i <= endingIndex;i++) {
 				input = swap(input,startingIndex,i);
 				printPermutationsOfString(input, startingIndex + 1, endingIndex);
-				input = swap(input, startingIndex, i);
 			}
 		}
 	}
@@ -28,7 +27,7 @@ public class PermutationsOfString {
 	}
 
 	public static void main(String[] args) {
-		String input = "abc";
+		String input = "abcd";
 		new PermutationsOfString().printPermutationsOfString(input, 0,input.length() - 1);
 		System.out.println("total permutations " + (permutationCount - 1));
 	}
