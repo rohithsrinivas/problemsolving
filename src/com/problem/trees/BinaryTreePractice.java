@@ -60,10 +60,11 @@ public class BinaryTreePractice {
 			} else if (root.leftChild != null && root.rightChild != null) {
 				int highestValue = getHighestValue(root.leftChild);
 				root.data = highestValue;
-				deleteNode(root.leftChild, highestValue);
+				root.leftChild = deleteNode(root.leftChild, highestValue);
 			} else {
 				Node validChild = root.leftChild != null ? root.leftChild : root.rightChild;
 				root = validChild;
+				root.leftChild = deleteNode(root.leftChild, root.data);
 			}
 		}
 		return root;
