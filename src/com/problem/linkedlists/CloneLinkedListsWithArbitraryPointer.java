@@ -93,7 +93,7 @@ public class CloneLinkedListsWithArbitraryPointer {
 		current = head;
 		
 		while(current != null) {
-			current.next.random = current.random;
+			current.next.random = current.random.next;
 
 			current = current.next.next;
 		}

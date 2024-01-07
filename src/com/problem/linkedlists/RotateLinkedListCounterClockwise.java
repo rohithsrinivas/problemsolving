@@ -165,7 +165,7 @@ public class RotateLinkedListCounterClockwise {
 		linkedList.insertBeforeNode(30, 40);
 		linkedList.insertAfterNode(60, 50);
 		linkedList.printList(linkedList.head);
-		Node new1= linkedList.rotateLinkedList(1,linkedList.head);
+		Node new1= linkedList.rotateLinkedList(3,linkedList.head);
 		System.out.println("__________________");
 		linkedList.printList(new1);
 		// linkedList.reverseLinkedList();

@@ -1,0 +1,15 @@
+1. What is a functional interface and how do you implement it ?
+2. What are intermediate and terminal operations in java 8 ?
+3. What is polymorphism in java ?
+4. Can you override a static method in java ? What will happen if we override a static method ?
+5. Can you override a protected method in java ?
+6. What design patterns have you used ?
+7. Singleton class Implementation in multi threaded environment ?
+8. What is the difference between a ClassNotFoundException and NoclassdeffoundError.
+9. Problem solving -
+
+find number of triplets in an array [x,y,z] where x + y = z
+
+IP: “#2@4Sai8$”
+
+the output should print 842 as a number. Dont use integer.parseint or integer.valueof

@@ -1,5 +1,8 @@
 package com.problem.stacks;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class BracketMatching {
 
 	class CustomStack{
@@ -43,12 +46,14 @@ public class BracketMatching {
 	}
 
 	private boolean checkExpressionForMatching(Character[] input) {
+		List<Character> openingBrackets = Arrays.asList('(','{','[');
+		List<Character> closingBrackets = Arrays.asList(')','}',']');
 		CustomStack stack = new CustomStack(10);
 		for(int i=0;i<input.length;i++) {
-			if(input[i] == '(' || input[i] == '{' || input[i] == '[')
+			if(openingBrackets.contains(input[i]))
 				stack.push(input[i]);
 			
-			else if(input[i] == ')' || input[i] == '}' || input[i]== ']') {
+			else if(closingBrackets.contains(input[i])) {
 				if(stack.isEmpty())
 					return false;
 				if(isMatchingBracket(stack.peek(), input[i]))
